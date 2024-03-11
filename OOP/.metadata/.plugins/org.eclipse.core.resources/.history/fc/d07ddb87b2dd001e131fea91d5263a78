@@ -1,0 +1,44 @@
+package labs1;
+
+public class Course {
+	private String name;
+	private int credit;
+	private Lecture lecture;
+
+	public Course(String name, int credit, Lecture lecture) {
+		super();
+		this.name = name;
+		this.credit = credit;
+		this.lecture = lecture;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getCredit() {
+		return credit;
+	}
+
+	public void setCredit(int credit) {
+		this.credit = credit;
+	}
+
+	public Lecture getLecture() {
+		return lecture;
+	}
+
+	public void setLecture(Lecture lecture) {
+		this.lecture = lecture;
+	}
+
+	@Override
+	public String toString() {
+		return "Course [name=" + name + ", credit=" + credit + ", lecture=" + lecture + "]";
+	}
+
+}

@@ -1,0 +1,9 @@
+package labs1;
+
+import junit.framework.TestCase;
+
+public class Test extends TestCase {
+	
+	
+
+}
