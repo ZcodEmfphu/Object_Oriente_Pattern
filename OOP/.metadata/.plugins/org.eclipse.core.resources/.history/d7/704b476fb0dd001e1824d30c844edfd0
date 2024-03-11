@@ -1,0 +1,8 @@
+package labs1;
+
+public class Lecture {
+	private String name;
+	private Date dayOfBirth;
+	private String degree;
+	
+}

@@ -1,0 +1,23 @@
+package labs1;
+
+import junit.framework.TestCase;
+
+public class Test extends TestCase {
+
+	public void main() {
+		
+		Lecture as1 = new Lecture("Tran Thi Thanh Nga", new Date(1, 1, 2000), "Master");
+		Lecture as2	= new Lecture("Pham Van Tinh", new Date(1, 1, 1990), "Doctor");
+		Lecture as3	= new Lecture("Nguyen Duc Cong Song", new Date(1, 1, 2000), "Master");
+		
+		Course c1 = new Course("Java Basic", 4, as3);
+		Course c2 = new Course("Advane Programing", 4, as1);
+		Course c3 = new Course("Network Programing", 4, as2);
+		
+		
+		assertTrue(c1.equal(c2));
+		
+		
+	}
+	
+}
