@@ -1,0 +1,10 @@
+package labs1_ex;
+
+public class Book {
+	private String title;
+	private int ISBN;
+	private int publicationYear;
+	private Author authour;
+
+	
+}

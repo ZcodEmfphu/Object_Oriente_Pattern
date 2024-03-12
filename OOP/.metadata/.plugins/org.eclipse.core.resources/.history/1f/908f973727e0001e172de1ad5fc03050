@@ -1,0 +1,8 @@
+package labs1_ex;
+
+public class MemberLibrary {
+
+	private String name;
+	private int memberId;
+
+}

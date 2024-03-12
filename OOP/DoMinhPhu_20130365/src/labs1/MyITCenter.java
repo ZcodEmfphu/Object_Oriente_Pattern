@@ -29,14 +29,12 @@ public class MyITCenter {
 		Course c3 = new Course("Network Programing", 4, as2);
 		Course c4 = new Course("Object Oriented Partten", 4, as1);
 		Course c5 = new Course("Advance Programing", 4, as2);
-		Course c6 = new Course(null, 0, as1);
 
 		courseList.add(c1);
 		courseList.add(c2);
 		courseList.add(c3);
 		courseList.add(c4);
 		courseList.add(c5);
-		courseList.add(c6);
 
 		Student s1 = new Student("Nguyen Van Tuan", new Date(1, 1, 2002));
 		Student s2 = new Student("Tran Van Thiet", new Date(1, 1, 2002));
@@ -106,8 +104,9 @@ public class MyITCenter {
 	public static void printList(List<?> list) {
 		for (Object o : list) {
 			System.out.println(o);
+			System.out.println("------------------------------------");
 		}
-		System.out.println("------------------------------------");
+
 	}
 
 	public Student findStudentByName(String name) {
@@ -121,7 +120,7 @@ public class MyITCenter {
 
 	public Course findCoursetByName(String name) {
 		for (Course c : courseList) {
-			if (c.getName().equals(c.getName())) {
+			if (c.getName().equals(name)) {
 				return c;
 			}
 		}
@@ -144,6 +143,7 @@ public class MyITCenter {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter student name: ");
 		String studentName = scanner.nextLine();
+
 		Student student = findStudentByName(studentName.trim());
 		if (student != null) {
 			student.printGradeReport();
@@ -155,19 +155,22 @@ public class MyITCenter {
 	public void printStudentOfCourseCardUsecase() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter course name: ");
+
 		String courseName = scanner.nextLine();
 		Course course = findCoursetByName(courseName.trim());
-		if (course != null) {
-			printList(getStudentsOfCourse(course));
-		} else {
+
+		if (course == null) {
 			System.out.println("Course name not found!");
+		} else {
+			printList(getStudentsOfCourse(course));
 		}
 	}
 
 	public static void main(String[] args) {
 		MyITCenter myITCenter = new MyITCenter();
 		myITCenter.printStudentOfCourseCardUsecase();
-//		myITCenter.printStudentReportCardUsecase();
+		myITCenter.printStudentReportCardUsecase();
+
 	}
 
 }

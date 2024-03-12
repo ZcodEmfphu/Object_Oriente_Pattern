@@ -1,0 +1,55 @@
+package labs1_ex;
+
+public class Book {
+	private String title;
+	private int ISBN;
+	private int publicationYear;
+	private Author authour;
+
+	public Book(String title, int iSBN, int publicationYear, Author authour) {
+		super();
+		this.title = title;
+		this.ISBN = iSBN;
+		this.publicationYear = publicationYear;
+		this.authour = authour;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getISBN() {
+		return ISBN;
+	}
+
+	public void setISBN(int iSBN) {
+		ISBN = iSBN;
+	}
+
+	public int getPublicationYear() {
+		return publicationYear;
+	}
+
+	public void setPublicationYear(int publicationYear) {
+		this.publicationYear = publicationYear;
+	}
+
+	public Author getAuthour() {
+		return authour;
+	}
+
+	public void setAuthour(Author authour) {
+		this.authour = authour;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [title=" + title + ", ISBN=" + ISBN + ", publicationYear=" + publicationYear + ", authour="
+				+ authour + "]";
+	}
+
+}
