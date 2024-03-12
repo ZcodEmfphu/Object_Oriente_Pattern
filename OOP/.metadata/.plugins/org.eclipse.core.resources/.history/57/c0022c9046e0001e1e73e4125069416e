@@ -1,0 +1,14 @@
+package labs1_ex;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MemberLibrary {
+
+	private String name;
+	private int memberId;
+	private String contactInformation;
+	private List<Register> memberRegister = new ArrayList<Register>();
+
+	
+}
