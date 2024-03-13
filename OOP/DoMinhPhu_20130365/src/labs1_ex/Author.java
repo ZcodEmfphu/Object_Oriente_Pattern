@@ -39,7 +39,7 @@ public class Author {
 
 	@Override
 	public String toString() {
-		return "Author [name=" + name + ", nationality=" + nationality + ", birthYear=" + birthYear + "]";
+		return "Author [name:" + name + ", nationality:" + nationality + ", birthYear:" + birthYear + "]";
 	}
 
 }

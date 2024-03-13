@@ -1,18 +1,16 @@
 package labs1_ex;
 
-import java.util.Date;
-
 public class Register {
 
 	private Book book;
 	private Date borrowDay;
 	private Date returnDay;
 
-	public Register(Book book) {
+	public Register(Book book, Date borrowDay, Date returnDay) {
 		super();
 		this.book = book;
-		this.borrowDay = new Date();
-		this.returnDay = new Date(this.borrowDay.getTime() * 24 * 60 * 60 * 1000);
+		this.borrowDay = borrowDay;
+		this.returnDay = returnDay;
 	}
 
 	public Book getBook() {
@@ -41,7 +39,7 @@ public class Register {
 
 	@Override
 	public String toString() {
-		return "Register [book=" + book + ", borrowDay=" + borrowDay + ", returnDay=" + returnDay + "]";
+		return "Register [book=" + book + ", borrowDay=" + borrowDay + ", returnDay=" + returnDay + "]\n";
 	}
 
 }

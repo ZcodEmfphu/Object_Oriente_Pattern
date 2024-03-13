@@ -1,6 +1,5 @@
 package labs1_ex;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +8,6 @@ public class MyITCenter {
 
 	private List<Book> bookList = new ArrayList<Book>();
 	private List<MemberLibrary> memberList = new ArrayList<MemberLibrary>();
-	private LocalDateTime now = LocalDateTime.now();
 
 	public MyITCenter() {
 		init();
@@ -22,12 +20,13 @@ public class MyITCenter {
 		Author a3 = new Author("Agatha Christie", "England", 1890);
 		Author a4 = new Author("Tolkien", "England", 1892);
 		Author a5 = new Author("Harper Lee", "England", 1926);
-//		Harry Potter and the Philosopher's Stone
-		Book b1 = new Book("1", "978-0-7475-3269-0", 1997, a1, null);
-		Book b2 = new Book("Nineteen Eighty-Four", "978-0-452-28423-4", 1949, a2, null);
-		Book b3 = new Book("Murder on the Orient Express", "978-0-00-711931-8", 1934, a3, null);
-		Book b4 = new Book("The Lord of the Rings", "978-0-544-27250-9", 1955, a4, null);
-		Book b5 = new Book("To Kill a Mockingbird", "978-0-06-112008-4", 1960, a5, null);
+
+//		Harry Potter and the Philosopher's Stone Nineteen Eighty-Four
+		Book b1 = new Book("1", "978-0-7475-3269-0", 1997, a1, "Availuable");
+		Book b2 = new Book("2", "978-0-452-28423-4", 1949, a2, "Borrow");
+		Book b3 = new Book("Murder on the Orient Express", "978-0-00-711931-8", 1934, a3, "Availuable");
+		Book b4 = new Book("The Lord of the Rings", "978-0-544-27250-9", 1955, a4, "Availuable");
+		Book b5 = new Book("To Kill a Mockingbird", "978-0-06-112008-4", 1960, a5, "Availuable");
 
 		bookList.add(b1);
 		bookList.add(b2);
@@ -40,6 +39,11 @@ public class MyITCenter {
 
 		memberList.add(ml1);
 		memberList.add(ml2);
+
+		ml1.register(b1, null, null);
+		ml1.register(b2, null, null);
+		ml1.register(b3, null, null);
+		ml1.register(b4, null, null);
 
 	}
 
@@ -63,53 +67,106 @@ public class MyITCenter {
 
 	public void systemLibrary() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Welcome to Library");
-		System.out.println("What do you want to Borrow Book or Return Book ?");
-		System.out.println(
-				"1. To Borrow Book => Please Enter 1\n2. To Return Book => Please Enter 2\nEnter your chossen: ");
-		int option = scanner.nextInt();
-		Scanner scanner2 = new Scanner(System.in);
+		System.out.println("Welcome to Library !");
+
+		String option = scanner.nextLine();
 
 		switch (option) {
-		case 1: {
-			System.out.println("================Borrow Book=======================\nEnter your name or ID Member:");
-			String nameOrID = scanner2.nextLine();
+		case "1": {
+			System.out.println("Borrow book: ");
+			System.out.println("Please enter member name or member ID of you: ");
+			String nameOrID = scanner.nextLine();
 			MemberLibrary m = checkMember(nameOrID);
-
 			if (m != null) {
-				System.out.println("Hello " + m.getName());
-				System.out.println("Enter your title or ISBN: ");
-				String titleOrISBN = scanner2.nextLine();
-
+				System.out.println("Welcome " + m.getName());
+				System.out.println("Please enter title book or ISBN of you: ");
+				String titleOrISBN = scanner.nextLine();
 				Book b = checkBook(titleOrISBN);
 				if (b != null) {
-					if (b.getStatus().equals("Availuable")) {
-						System.out.println("You can borrow 30day ");
-						m.register(b);
+					System.out.println("Infor book: ");
+					System.out.println(b);
+					if (b.getStatus().equalsIgnoreCase("Availuable")) {
+						Scanner scanner2 = new Scanner(System.in);
+						System.out.println("Please enter day borrow: ");
+						int date = scanner2.nextInt();
+						System.out.println("Please enter month borrow: ");
+						int month = scanner2.nextInt();
+						System.out.println("Please enter year borrow: ");
+						int year = scanner2.nextInt();
+						Date db = new Date(date, month, year);
+
+						System.out.println("Please enter date return: ");
+						int date2 = scanner2.nextInt();
+						System.out.println("Please enter month return: ");
+						int month2 = scanner2.nextInt();
+						Date dr = new Date(date2, month2, year);
+						m.register(b, db, dr);
 						m.updateStatusBook(b);
+						System.out.println("You borrowe Success!");
+						System.out.println(m.getMemberRegister());
 					} else {
-						System.out.println("Sách Đã mượn");
+						System.out.println("Book is borrowed!");
 					}
 				} else {
-					System.out.println("your title or ISBN not exits");
+					System.out.println("Title book or ISBN is not found");
 				}
 			} else {
-				System.out.println("your name or ID Member not exits!");
+				System.out.println("Member name or member ID is not found!");
 			}
+			break;
+		}
+		case "2": {
+			System.out.println("Return book: ");
+			System.out.println("Please enter title book or ISBN of you: ");
+			String titleOrISBN = scanner.nextLine();
+			Book b = checkBook(titleOrISBN);
+			if (b != null) {
+				if (b.getStatus().equalsIgnoreCase("Borrow")) {
+					MemberLibrary m;
+					b.setStatus("Availuable");
+					System.out.println("You are return success!");
+					System.out.println(b);
+				} else {
+					System.out.println("Book dont have Borrow");
+				}
 
+			} else {
+				System.out.println("Dont found book!");
+			}
+			break;
+
+		}
+
+		case "3": {
+			System.out.println("Member's Borrow book: ");
+			System.out.println("Please enter member name or member ID of you: ");
+			String nameOrID = scanner.nextLine();
+			MemberLibrary m = checkMember(nameOrID);
+			if (m != null) {
+				System.out.println(m);
+			} else {
+				System.out.println("1");
+			}
 			break;
 		}
-		case 2: {
-			System.out.println(2);
+		case "4": {
+			System.out.println("Member's Borrow book: ");
+			System.out.println("Please enter member name or member ID of you: ");
+			String nameOrID = scanner.nextLine();
+			Book b = checkBook(nameOrID);
+			if (b != null) {
+				System.out.println(b);
+			} else {
+				System.out.println("1");
+			}
 			break;
 		}
-		case 5: {
-			System.out.println("Exiting....");
-			System.exit(0);
+		case "5": {
+
 			break;
 		}
 		default:
-			System.out.println("Failed");
+			System.out.println("Khoong co");
 		}
 
 	}

@@ -1,0 +1,9 @@
+package labs1_ex1;
+
+public class Course {
+
+	private String name;
+	private String code;
+	private int creditHours;
+
+}
