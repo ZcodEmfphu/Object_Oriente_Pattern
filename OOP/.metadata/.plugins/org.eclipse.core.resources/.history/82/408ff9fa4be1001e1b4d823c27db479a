@@ -1,0 +1,6 @@
+package labs1_ex1;
+
+public class Enrollment {
+	private List<Student> students;
+
+}

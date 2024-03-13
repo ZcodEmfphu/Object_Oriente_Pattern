@@ -49,14 +49,24 @@ public class MemberLibrary {
 		this.memberRegister = memberRegister;
 	}
 
-	public void register(Book book) {
-		memberRegister.add(new Register(book));
+	public void register(Book book, Date borrowDay, Date returnDay) {
+		memberRegister.add(new Register(book, borrowDay, returnDay));
 	}
 
 	public void updateStatusBook(Book b) {
 		for (Register r : memberRegister) {
 			if (r.getBook().getTitle().equals(b.getTitle())) {
-				r.getBook().setStatus("Unavaluable");
+				r.getBook().setStatus("Borrowed");
+				break;
+			}
+
+		}
+	}
+
+	public void returnStatusBook(Book b) {
+		for (Register r : memberRegister) {
+			if (r.getBook().getTitle().equals(b.getTitle())) {
+				r.getBook().setStatus("Availuable");
 				break;
 			}
 

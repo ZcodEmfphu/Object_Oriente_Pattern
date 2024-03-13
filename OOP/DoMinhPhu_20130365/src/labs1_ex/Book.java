@@ -1,7 +1,5 @@
 package labs1_ex;
 
-import java.util.List;
-
 public class Book {
 	private String title;
 	private String ISBN;
@@ -15,7 +13,8 @@ public class Book {
 		this.ISBN = iSBN;
 		this.publicationYear = publicationYear;
 		this.authour = authour;
-		this.status = "Availuable";
+		this.status = status;
+
 	}
 
 	public String getTitle() {
@@ -61,7 +60,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book: [title:" + title + ", ISBN:" + ISBN + ", publicationYear:" + publicationYear + ", authour:"
-				+ authour + ", status:" + status + "]";
+				+ authour + ", status:" + status + "]\n";
 	}
 
 }
