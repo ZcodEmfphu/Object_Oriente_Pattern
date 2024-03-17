@@ -1,8 +1,0 @@
-package labs1_ex;
-
-public class Register {
-
-	MemberLibrary memberLibrary;
-	Book book;
-	
-}

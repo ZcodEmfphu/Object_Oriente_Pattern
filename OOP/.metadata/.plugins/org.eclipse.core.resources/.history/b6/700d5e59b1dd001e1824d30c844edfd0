@@ -1,7 +1,0 @@
-package labs1;
-
-public class Register {
-	private Course course;
-	private double grade;
-
-}
