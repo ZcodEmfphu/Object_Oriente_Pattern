@@ -1,8 +1,0 @@
-package labs1_ex1;
-
-import java.util.List;
-
-public class Enrollment {
-	private List<Student> students;
-
-}

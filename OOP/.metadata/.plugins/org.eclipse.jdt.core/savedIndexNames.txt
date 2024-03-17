@@ -1,7 +1,0 @@
-INDEX VERSION 1.134+D:\Project\OOP\Object_Oriente_Pattern\OOP\.metadata\.plugins\org.eclipse.jdt.core
-3413270776.index
-1147470874.index
-1865797976.index
-3510580509.index
-483824640.index
-2667400917.index

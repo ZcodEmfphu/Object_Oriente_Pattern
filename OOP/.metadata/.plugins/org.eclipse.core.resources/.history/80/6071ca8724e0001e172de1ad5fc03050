@@ -1,8 +1,0 @@
-package labs1_ex;
-
-public class Author {
-
-	private String name;
-	private String nationality;
-
-}

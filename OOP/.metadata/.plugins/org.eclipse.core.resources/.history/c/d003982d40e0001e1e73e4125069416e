@@ -1,6 +1,0 @@
-package labs1_ex;
-
-public class Register {
-
-	Book book;
-}
