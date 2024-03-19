@@ -59,16 +59,17 @@ public class BusinessCustomer extends Customer {
 		ThreeReading newReading = (ThreeReading) getNewReading();
 		int usage = newReading.getIndex() - oldReading.getIndex();
 
-		return "Company ID: " + getId() + "\nNameCompany" + getName() + "\nAccountNumber: " + getNumberAccount()
-				+ "\nOldReading: " + oldReading.getIndex() + " kwh\nnewReading: " + newReading.getIndex()
-				+ " kwh\nUsage: " + usage + "\nNomal Time: " + getNomalUsage(oldReading, newReading) + "\nHigh Time: "
+		return "Company ID: " + getId() + "\nNameCompany: " + getName() + "\nAccountNumber: " + getNumberAccount()
+				+ "\nOldDate:" + oldReading.getDate() + "\nNewDate: " + newReading.getDate() + "\nOldReading: "
+				+ oldReading.getIndex() + " kwh\nnewReading: " + newReading.getIndex() + " kwh\nUsage: " + usage
+				+ "\nNomal Time: " + getNomalUsage(oldReading, newReading) + "\nHigh Time: "
 				+ getHightUsage(oldReading, newReading) + "\nLow Time: " + getLowUsage(oldReading, newReading)
 				+ " kwh\nTotal: " + charge() + " VND\n\n\n\n";
 	}
 
 	@Override
 	public String toString() {
-		return "BusinessCustomer [numberAccount=" + numberAccount + ", readings=" + readings + "]";
+		return "\nBusinessCustomer [numberAccount=" + numberAccount + ", \nreadings=" + readings + "]";
 	}
 
 }

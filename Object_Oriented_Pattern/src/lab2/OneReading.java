@@ -9,4 +9,9 @@ public class OneReading extends Reading {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "\nOneReading [Date:" + getDate() + ",Index:" + getIndex();
+	}
+
 }
