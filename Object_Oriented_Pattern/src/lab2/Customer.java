@@ -52,9 +52,4 @@ public abstract class Customer {
 
 	public abstract String statement();
 
-	@Override
-	public String toString() {
-		return "Customer [name=" + name + ", address=" + address + "]";
-	}
-
 }

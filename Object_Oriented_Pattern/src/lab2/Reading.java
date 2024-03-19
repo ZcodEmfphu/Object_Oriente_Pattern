@@ -30,7 +30,7 @@ public abstract class Reading {
 
 	@Override
 	public String toString() {
-		return "Reading [date=" + date + ", index=" + index + "]";
+		return "Reading date=" + date + ", index=" + index;
 	}
 
 }

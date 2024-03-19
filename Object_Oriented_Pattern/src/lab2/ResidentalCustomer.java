@@ -1,18 +1,17 @@
 package lab2;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class ResidentalCustomer extends Customer {
+
+	private List<OneReading> readings = new ArrayList<OneReading>();
+	private List<ResidentalCustomer> customers = new ArrayList<ResidentalCustomer>();
 
 	public ResidentalCustomer(String id, String name, String address) {
 		super(id, name, address);
 		// TODO Auto-generated constructor stub
 	}
-
-	private List<OneReading> readings = new ArrayList<OneReading>();
 
 	@Override
 	public List<OneReading> getReading() {
@@ -53,8 +52,15 @@ public class ResidentalCustomer extends Customer {
 				+ charge() + " VND\n\n\n\n";
 	}
 
-	public static void main(String[] args) {
+	@Override
+	public String toString() {
+		return "\nResidentalCustomer: [readings=" + readings + ", customers: " + super.getName()
+				+ "\n----------------------------------------------------------------------------------";
+	}
 
+	public static void main(String[] args) {
+		ResidentalCustomer rc1 = new ResidentalCustomer("202001", "Trần Văn Quýt", null);
+		System.out.println(rc1);
 	}
 
 }
