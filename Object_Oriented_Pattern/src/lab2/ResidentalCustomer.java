@@ -44,8 +44,13 @@ public class ResidentalCustomer extends Customer {
 
 	@Override
 	public String statement() {
-		// TODO Auto-generated method stub
-		return null;
+		Reading oldReading = getOldReading();
+		Reading newReading = getNewReading();
+		int usage = newReading.getIndex() - oldReading.getIndex();
+
+		return "Customer ID: " + getId() + "\nName: " + getName() + "\nOldReading: " + oldReading.getIndex()
+				+ " Kwh\nnewReading: " + newReading.getIndex() + " Kwh\nTotal Usage: " + usage + " kwh\nTotal: "
+				+ charge() + " VND\n\n\n\n";
 	}
 
 	public static void main(String[] args) {

@@ -1,13 +1,11 @@
 package lab2;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Customer {
 	private String id;
 	private String name;
 	private String address;
-	private List<Reading> listCustomer = new ArrayList<Reading>();
 
 	public Customer(String id, String name, String address) {
 		super();
