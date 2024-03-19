@@ -1,36 +1,36 @@
-//package lab2;
-//
-//import java.util.Date;
-//
-//public class ThreeReading extends Reading {
-//	private long highIndex;
-//	private long lowIndex;
-//
-//	public ThreeReading(Date date, long index, long highIndex, long lowIndex) {
-//		super(date, index);
-//		this.highIndex = highIndex;
-//		this.lowIndex = lowIndex;
-//	}
-//
-//	public long getHighIndex() {
-//		return highIndex;
-//	}
-//
-//	public void setHighIndex(long highIndex) {
-//		this.highIndex = highIndex;
-//	}
-//
-//	public long getLowIndex() {
-//		return lowIndex;
-//	}
-//
-//	public void setLowIndex(long lowIndex) {
-//		this.lowIndex = lowIndex;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "ThreeReading [highIndex=" + highIndex + ", lowIndex=" + lowIndex + "]";
-//	}
-//
-//}
+package lab2;
+
+import java.util.Date;
+
+public class ThreeReading extends Reading {
+	private int highIndex;
+	private int lowIndex;
+
+	public ThreeReading(Date date, int index, int highIndex, int lowIndex) {
+		super(date, index);
+		this.highIndex = highIndex;
+		this.lowIndex = lowIndex;
+	}
+
+	public int getHighIndex() {
+		return highIndex;
+	}
+
+	public void setHighIndex(int highIndex) {
+		this.highIndex = highIndex;
+	}
+
+	public int getLowIndex() {
+		return lowIndex;
+	}
+
+	public void setLowIndex(int lowIndex) {
+		this.lowIndex = lowIndex;
+	}
+
+	@Override
+	public String toString() {
+		return "ThreeReading [highIndex=" + highIndex + ", lowIndex=" + lowIndex + "]";
+	}
+
+}
