@@ -1,6 +1,7 @@
 package testcase;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.text.SimpleDateFormat;
@@ -39,16 +40,16 @@ class Lab2Test {
 
 		OneReading oneReading1 = new OneReading(new GregorianCalendar(2024, Calendar.FEBRUARY, 18).getTime(), 1353);
 		OneReading oneReading2 = new OneReading(new GregorianCalendar(2024, Calendar.FEBRUARY, 18).getTime(), 1490);
-		OneReading oneReading3 = new OneReading(new GregorianCalendar(2024, Calendar.FEBRUARY, 18).getTime(), 1540);
-		OneReading oneReading4 = new OneReading(new GregorianCalendar(2024, Calendar.MARCH, 18).getTime(), 1640);
-		OneReading oneReading5 = new OneReading(new GregorianCalendar(2024, Calendar.MARCH, 18).getTime(), 1800);
+		OneReading oneReading3 = new OneReading(new GregorianCalendar(2024, Calendar.MAY, 18).getTime(), 1540);
+		OneReading oneReading4 = new OneReading(new GregorianCalendar(2024, Calendar.MAY, 18).getTime(), 1640);
+		OneReading oneReading5 = new OneReading(new GregorianCalendar(2024, Calendar.MAY, 18).getTime(), 1800);
 
-		ThreeReading threeReading = new ThreeReading(new GregorianCalendar(2024, Calendar.JANUARY, 18).getTime(), 1350,
+		ThreeReading threeReading = new ThreeReading(new GregorianCalendar(2024, Calendar.MAY, 18).getTime(), 1350,
 				2102, 2310);
-		ThreeReading threeReading1 = new ThreeReading(new GregorianCalendar(2024, Calendar.FEBRUARY, 18).getTime(),
-				1500, 2202, 2510);
-		ThreeReading threeReading2 = new ThreeReading(new GregorianCalendar(2024, Calendar.FEBRUARY, 18).getTime(),
-				1600, 2302, 2410);
+		ThreeReading threeReading1 = new ThreeReading(new GregorianCalendar(2024, Calendar.MAY, 18).getTime(), 1500,
+				2202, 2510);
+		ThreeReading threeReading2 = new ThreeReading(new GregorianCalendar(2024, Calendar.MAY, 18).getTime(), 1600,
+				2302, 2410);
 
 		rc1.addReading(oneReading);
 		rc1.addReading(oneReading1);
@@ -89,20 +90,24 @@ class Lab2Test {
 		Date endDate = new GregorianCalendar(2024, Calendar.MARCH, 18).getTime();
 
 		List<Customer> listCustomner1 = evn.getReadingsByName("Trần Văn Quýt");
-//		List<Customer> listCustomerDate1 = evn.getCustomersInDate(startDate, endDate);
+		List<OneReading> listOneReadings1 = rc1.getSelectedReadings(startDate, endDate);
+		assertEquals(55000.0, rc1.charge());
+		assertEquals(91000.0, rc2.charge());
+		assertEquals(148400.0, rc3.charge());
+		assertEquals(281100.0, rc4.charge());
+		assertEquals(504500.0, rc5.charge());
 
-//		assertEquals(1650.0, rc1.charge());
-//		assertEquals(91000.0, rc2.charge());
-//		assertEquals(148400.0, rc3.charge());
-//		assertEquals(281100.0, rc4.charge());
-//		assertEquals(504500.0, rc5.charge());
-//
-//		assertEquals(392250.0, bc1.charge());
-//		assertEquals(574750.0, bc2.charge());
+		assertEquals(392250.0, bc1.charge());
+		assertEquals(574750.0, bc2.charge());
 
 //		System.out.println(evn.invoice("201001"));
 //		System.out.println(evn.allInvoice());
-		System.out.println(evn.calculateAverageElectricityBill(startDate, endDate));
+//		System.out.println(evn);
+//		System.out.println(evn.calculateAverageElectricityBill(startDate, endDate));
+//		System.out.println(rc1.calculateAverageElectricityBill(startDate, endDate));
+//		System.out.println(listOneReadings1);
+		System.out.println(rc1.statementDate(startDate, endDate));
+//		System.out.println(rc1);
 //		System.out.println(listCustomerDate1);
 //		System.out.println(listCustomerDate1);
 	}

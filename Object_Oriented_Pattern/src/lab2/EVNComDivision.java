@@ -51,8 +51,6 @@ public class EVNComDivision {
 	}
 
 	public double calculateAverageElectricityBill(Date startDate, Date endDate) {
-//		List<Customer> listCustomers = new ArrayList<>();
-		double totalElectricityBill = 0.0;
 		Calendar startCalendar = Calendar.getInstance();
 		startCalendar.setTime(startDate);
 		int startYear = startCalendar.get(Calendar.YEAR);
@@ -63,27 +61,32 @@ public class EVNComDivision {
 		int endYear = endCalendar.get(Calendar.YEAR);
 		int endMonth = endCalendar.get(Calendar.MONTH);
 
+		double totalElectricityBill = 0.0;
 		int totalMonths = (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
 
 		for (Customer c : customerList.values()) {
-//			boolean hasReadingInDateRange = false;
 			for (Reading r : c.getReading()) {
 				Date readingDate = r.getDate();
 				if (readingDate.compareTo(startDate) >= 0 && readingDate.compareTo(endDate) <= 0) {
-//					hasReadingInDateRange = true;
 					totalElectricityBill += c.charge();
-
 					break;
 				}
 			}
-//			if (hasReadingInDateRange) {
-//				listCustomers.add(c);
-//			}
 		}
 		if (totalMonths == 0) {
 			return 0.0;
 		}
 		return totalElectricityBill / totalMonths;
+	}
+
+	public String getBillFromDateToDate(Date startDate, Date endDate) {
+		StringBuffer res = new StringBuffer("Company " + name + "\n");
+		res.append("REPORT ELECTRIC BILL OF ALL CUSTOMER\n\n");
+		for (Customer c : customerList.values()) {
+			res.append(c.statement());
+		}
+
+		return res.toString();
 	}
 
 	@Override
