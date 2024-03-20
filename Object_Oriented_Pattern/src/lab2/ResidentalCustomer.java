@@ -1,6 +1,7 @@
 package lab2;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ResidentalCustomer extends Customer {
@@ -49,7 +50,46 @@ public class ResidentalCustomer extends Customer {
 
 		return "Customer ID: " + getId() + "\nName: " + getName() + "\nOldReading: " + oldReading.getIndex()
 				+ " Kwh\nnewReading: " + newReading.getIndex() + " Kwh\nTotal Usage: " + usage + " kwh\nTotal: "
-				+ charge() + " VND\n\n\n\n";
+				+ charge() + " VND\n----------------------------------------------------------\n";
+	}
+
+	public double calculateAverageElectricityBill(Date startDate, Date endDate) {
+		double totalElectricityBill = 0.0;
+		int totalMonths = 0;
+
+		for (OneReading reading : readings) {
+			Date readingDate = reading.getDate();
+			if (readingDate.compareTo(startDate) >= 0 && readingDate.compareTo(endDate) <= 0) {
+				totalElectricityBill += charge();
+				totalMonths++;
+			}
+		}
+		if (totalMonths == 0) {
+			return 0.0;
+		}
+		return totalElectricityBill / totalMonths;
+	}
+
+	public List<OneReading> getSelectedReadings(Date startDate, Date endDate) {
+		List<OneReading> selectedReadings = new ArrayList<>();
+
+		for (OneReading reading : readings) {
+			Date readingDate = reading.getDate();
+			if (readingDate.compareTo(startDate) >= 0 && readingDate.compareTo(endDate) <= 0) {
+				selectedReadings.add(reading);
+			}
+		}
+
+		return selectedReadings;
+	}
+
+	public String statementDate(Date startDate, Date endDate) {
+		Reading oldReading = getOldReading();
+		Reading newReading = getNewReading();
+		int usage = newReading.getIndex() - oldReading.getIndex();
+
+		return "CUSTOMER ID: " + getId() + "CUSTOMER NAME: " + getName() + "\nFromDate: " + startDate + "\nEndDate: "
+				+ endDate + "Reading is: " + this.getSelectedReadings(startDate, endDate);
 	}
 
 	@Override

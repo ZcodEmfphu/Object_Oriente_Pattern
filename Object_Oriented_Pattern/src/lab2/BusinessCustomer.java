@@ -60,12 +60,15 @@ public class BusinessCustomer extends Customer {
 		int usage = newReading.getIndex() - oldReading.getIndex();
 
 		return "Company ID: " + getId() + "\nNameCompany: " + getName() + "\nAccountNumber: " + getNumberAccount()
-				+ "\nOldDate:" + oldReading.getDate() + "\nNewDate: " + newReading.getDate() + "\nOldReading: "
+				+ "\nOldDate: " + oldReading.getDate() + "\nNewDate: " + newReading.getDate() + "\nOldReading: "
 				+ oldReading.getIndex() + " kwh\nnewReading: " + newReading.getIndex() + " kwh\nUsage: " + usage
-				+ "\nNomal Time: " + getNomalUsage(oldReading, newReading) + "\nHigh Time: "
-				+ getHightUsage(oldReading, newReading) + "\nLow Time: " + getLowUsage(oldReading, newReading)
-				+ " kwh\nTotal: " + charge() + " VND\n\n\n\n";
+				+ "kwh\nNomal Time: " + getNomalUsage(oldReading, newReading) + "kwh\nHigh Time: "
+				+ getHightUsage(oldReading, newReading) + "kwh\nLow Time: " + getLowUsage(oldReading, newReading)
+				+ " kwh\nTotal: " + charge()
+				+ " VND\n------------------------------------------------------------------------------------\n";
 	}
+	
+	
 
 	@Override
 	public String toString() {
