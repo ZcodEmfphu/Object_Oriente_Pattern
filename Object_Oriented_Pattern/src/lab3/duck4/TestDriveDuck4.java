@@ -10,6 +10,7 @@ public class TestDriveDuck4 {
 		Duck redHead = new RedHeadDuck();
 		Duck rubber = new RubberDuck();
 		Duck decoy = new DecoyDuck();
+		Duck mode = new ModeDuck();
 
 		marllard.display();
 		marllard.performQuack();
@@ -33,6 +34,12 @@ public class TestDriveDuck4 {
 		decoy.performFly();
 		decoy.performQuack();
 		decoy.swim();
+
+		System.out.println("---------------------------------");
+		mode.display();
+		mode.performFly();
+		mode.setFlyBehavior(new FlyRocketPower());
+		mode.performFly();
 
 	}
 
