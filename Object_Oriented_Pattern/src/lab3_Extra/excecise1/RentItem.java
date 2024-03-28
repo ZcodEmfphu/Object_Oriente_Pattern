@@ -45,8 +45,17 @@ public class RentItem {
 		return movie.getCharge(getRentedDay());
 	}
 
+	public int getFrequentRenterPoint() {
+		return movie.getFrequentRenterPoint(getRentedDay());
+	}
+
+	@Override
+	public String toString() {
+		return "RentItem [movie=" + movie + ", startDate=" + startDate + "]";
+	}
+
 	public static void main(String[] args) {
-		RentItem rentItem = new RentItem(new Movie("One Piece", "Japanese", new NewReleasePrice(), true),
+		RentItem rentItem = new RentItem(new Movie("One Piece", "Japanese", new NewReleasePrice()),
 				new GregorianCalendar(2024, Calendar.APRIL, 1).getTime());
 		System.out.println(rentItem.getRentedDay());
 

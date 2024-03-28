@@ -1,6 +1,6 @@
 package lab3_Extra.excecise1;
 
-public class ChildrensPrice implements PriceStratery {
+public class ChildrensPrice extends PriceStratery {
 
 	@Override
 	public double getCharge(int daysRented) {

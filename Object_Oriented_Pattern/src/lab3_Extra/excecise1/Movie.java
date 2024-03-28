@@ -7,7 +7,7 @@ public class Movie {
 	private PriceStratery price;
 	private boolean available;
 
-	public Movie(String title, String manufacturer, PriceStratery price, boolean available) {
+	public Movie(String title, String manufacturer, PriceStratery price) {
 		super();
 		this.title = title;
 		this.manufacturer = manufacturer;
@@ -51,10 +51,14 @@ public class Movie {
 		return price.getCharge(dayRented);
 	}
 
+	public int getFrequentRenterPoint(int dayRented) {
+		return price.getFrequentRenterPoint(dayRented);
+	}
+
 	@Override
 	public String toString() {
-		return "Movie [title=" + title + ", manufacturer=" + manufacturer + ", price=" + price + ", available="
-				+ available + "]";
+		return "Movie [title=" + title + ", manufacturer=" + manufacturer + ",\nprice=" + price + ", available="
+				+ available + "]\n";
 	}
 
 }
