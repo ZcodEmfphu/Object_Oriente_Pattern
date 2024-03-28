@@ -1,6 +1,6 @@
 package lab3_Extra.excecise1;
 
-public class RegularPrice implements PriceStratery {
+public class RegularPrice extends PriceStratery {
 
 	@Override
 	public double getCharge(int daysRented) {
