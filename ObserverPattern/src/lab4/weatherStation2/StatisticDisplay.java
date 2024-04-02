@@ -11,7 +11,7 @@ public class StatisticDisplay implements Observer, DisplayElement {
 
 	public StatisticDisplay(WeatherData weatherData) {
 		this.weatherData = weatherData;
-		weatherData.registerObseever(this);
+		weatherData.registerObserver(this);
 //		weatherData.notifyObseever();
 	}
 
