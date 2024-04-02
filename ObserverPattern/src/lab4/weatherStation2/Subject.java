@@ -2,10 +2,10 @@ package lab4.weatherStation2;
 
 public interface Subject {
 
-	public void registerObseever(Observer observer);
+	public void registerObserver(Observer observer);
 
-	public void removeObseever(Observer observer);
+	public void removeObserver(Observer observer);
 
-	public void notifyObseever();
+	public void notifyObserver();
 
 }

@@ -13,40 +13,8 @@ public class WeatherData implements Subject {
 		observersList = new ArrayList<Observer>();
 	}
 
-	public float getTemperature() {
-		return temperature;
-	}
-
-	public void setTemperature(float temperature) {
-		this.temperature = temperature;
-	}
-
-	public float getHumidity() {
-		return humidity;
-	}
-
-	public void setHumidity(float humidity) {
-		this.humidity = humidity;
-	}
-
-	public float getPressure() {
-		return pressure;
-	}
-
-	public void setPressure(float pressure) {
-		this.pressure = pressure;
-	}
-
 	public void measurementsChanged() {
-		float temperature = getTemperature();
-		float humidity = getHumidity();
-		float pressure = getPressure();
-
-		new CurrentConditionDispplay(this).update(temperature, humidity, pressure);
-		new ForecastDisplay(this).update(temperature, humidity, pressure);
-		new StatisticDisplay(this).update(temperature, humidity, pressure);
-		new HeatIndexDispplay(this).update(temperature, humidity, pressure);
-
+		notifyObserver();
 	}
 
 	public void setMeasurements(float temperature, float humidity, float pressure) {
@@ -58,20 +26,22 @@ public class WeatherData implements Subject {
 	}
 
 	@Override
-	public void registerObseever(Observer observer) {
+	public void registerObserver(Observer observer) {
 		observersList.add(observer);
 
 	}
 
 	@Override
-	public void removeObseever(Observer observer) {
+	public void removeObserver(Observer observer) {
 		observersList.remove(observer);
 
 	}
 
 	@Override
-	public void notifyObseever() {
-		System.out.println("Notify!!");
+	public void notifyObserver() {
+		for (Observer observer : observersList) {
+			observer.update(temperature, humidity, pressure);
+		}
 
 	}
 }

@@ -7,7 +7,7 @@ public class HeatIndexDispplay implements Observer, DisplayElement {
 
 	public HeatIndexDispplay(WeatherData weatherData) {
 		this.weatherData = weatherData;
-		weatherData.registerObseever(this);
+		weatherData.registerObserver(this);
 	}
 
 	@Override
