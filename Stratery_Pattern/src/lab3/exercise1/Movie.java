@@ -1,4 +1,5 @@
-package lab3_Extra.excecise1;
+package lab3.exercise1;
+
 
 public class Movie {
 
