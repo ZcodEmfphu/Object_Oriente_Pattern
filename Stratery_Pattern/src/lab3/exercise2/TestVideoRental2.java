@@ -1,14 +1,14 @@
-package lab3_Extra.excecise1;
+package lab3.exercise2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
 
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class TestVideoRental {
+class TestVideoRental2 {
 
 	@Test
 	void testVideoRental() {
@@ -19,10 +19,11 @@ class TestVideoRental {
 		Movie m4 = new Movie("The Dark Knight", "Warner Bros. Pictures", PriceStratery.NEW_RELEASE);
 		Movie m5 = new Movie("The Ligth", "Warner Bros. Pictures", PriceStratery.SERIAL);
 
-		Movie[] movieList = { m1, m2, m3, m4, m5 };
+		Customer marry = new Customer("1", "Marry", "");
+		Customer jone = new Customer("2", "Jone", "");
 
-		Customer marry = new Customer("Marry");
-		Customer jone = new Customer("Jone");
+		CustomerManagement customerManage = new CustomerManagement();
+		customerManage.addCustomer(marry);
 
 		marry.rentMovie(m1, new GregorianCalendar(2024, Calendar.MARCH, 26).getTime());
 		marry.rentMovie(m2, new GregorianCalendar(2024, Calendar.MARCH, 26).getTime());
@@ -33,11 +34,14 @@ class TestVideoRental {
 		jone.rentMovie(m4, new GregorianCalendar(2024, Calendar.MARCH, 25).getTime());
 		jone.rentMovie(m5, new GregorianCalendar(2024, Calendar.MARCH, 25).getTime());
 
-//		System.out.println(Arrays.toString(movieList));
 		System.out.println(marry.statement());
 		System.out.println("------------------------------------");
 		System.out.println(jone.statement());
 		System.out.println("------------------------------------");
+
+		customerManage.inputCustomerInfo();
+		marry.viewRentHistory();
+		System.out.println(marry.viewRentHistory());
 
 	}
 

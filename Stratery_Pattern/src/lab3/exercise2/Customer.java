@@ -1,4 +1,4 @@
-package lab3_Extra.excecise2;
+package lab3.exercise2;
 
 import java.util.ArrayList;
 import java.util.Date;

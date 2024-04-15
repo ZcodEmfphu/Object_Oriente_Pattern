@@ -1,4 +1,5 @@
-package lab3_Extra.excecise2;
+package lab3.exercise1;
+
 
 public class NewReleasePrice extends PriceStratery {
 

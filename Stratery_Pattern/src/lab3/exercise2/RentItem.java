@@ -1,5 +1,4 @@
-package lab3_Extra.excecise2;
-
+package lab3.exercise2;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
