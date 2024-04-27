@@ -1,6 +1,5 @@
 package lab6.pizzaFactoryMethod;
 
-import java.util.ArrayList;
 
 public class ChicagoCheesePizza extends Pizza {
 
