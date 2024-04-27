@@ -23,6 +23,10 @@ public abstract class Bomber extends Actor {
 
 	public abstract void setNew(int x, int y);
 
+	public abstract void setQuantityBomb(int quantityBomb);
+
+	public abstract void setSizeBomb(int sizeBomb);
+
 	public int getScore() {
 		return score;
 	}
@@ -46,10 +50,6 @@ public abstract class Bomber extends Actor {
 	public int getQuantityBomb() {
 		return quantityBomb;
 	}
-
-	public abstract void setQuantityBomb(int quantityBomb);
-
-	public abstract void setSizeBomb(int sizeBomb);
 
 	public int getSizeBomb() {
 		return sizeBomb;

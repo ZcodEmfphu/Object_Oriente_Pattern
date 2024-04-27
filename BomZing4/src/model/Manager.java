@@ -38,7 +38,7 @@ public class Manager {
 	private int status = 0;
 	private int type;
 	DigitalClock digitalClock = new DigitalClock();
-	private Countdown countdown;
+	private Countdown countdown;	
 	private int scoretime;
 
 	public Manager(int type) {
