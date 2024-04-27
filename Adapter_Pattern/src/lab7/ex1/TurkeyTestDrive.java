@@ -1,6 +1,7 @@
 package lab7.ex1;
 
 public class TurkeyTestDrive {
+	
 	public static void main(String[] args) {
 		MallardDuck duck = new MallardDuck();
 		Turkey duckAdapter = new DuckAdapter(duck);
