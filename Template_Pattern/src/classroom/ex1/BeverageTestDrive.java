@@ -1,4 +1,4 @@
-package ex1;
+package classroom.ex1;
 
 public class BeverageTestDrive {
 
