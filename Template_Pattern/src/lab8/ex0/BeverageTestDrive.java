@@ -20,5 +20,23 @@ public class BeverageTestDrive {
 
 		System.out.println("\nMaking coffee...");
 		coffeeHook.prepareRecipe();
+
+		Tea tea1 = new Tea();
+		Coffee coffee1 = new Coffee();
+
+		System.out.println("\nMaking tea...");
+		tea.prepareRecipe();
+
+		System.out.println("\nMaking coffee...");
+		coffee.prepareRecipe();
+
+		TeaWithHook teaHook1 = new TeaWithHook();
+		CoffeeWithHook coffeeHook1 = new CoffeeWithHook();
+
+		System.out.println("\nMaking tea...");
+		teaHook.prepareRecipe();
+
+		System.out.println("\nMaking coffee...");
+		coffeeHook.prepareRecipe();
 	}
 }
