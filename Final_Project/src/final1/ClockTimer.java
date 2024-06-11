@@ -45,7 +45,7 @@ public class ClockTimer implements ClockTime {
 			public void run() {
 				// TODO Auto-generated method stub
 				Calendar calendar = Calendar.getInstance();
-				h = calendar.get(Calendar.HOUR_OF_DAY);
+				h = calendar.get(Calendar.HOUR);
 				m = calendar.get(calendar.MINUTE);
 				s = calendar.get(calendar.SECOND);
 				noti();
@@ -62,7 +62,7 @@ public class ClockTimer implements ClockTime {
 	@Override
 	public void unRegister(Observer observer) {
 		// TODO Auto-generated method stub
-
+		listObserver.remove(observer);
 	}
 
 	@Override
@@ -71,11 +71,6 @@ public class ClockTimer implements ClockTime {
 		for (Observer item : listObserver) {
 			item.update();
 		}
-	}
-
-	public static void main(String[] args) {
-		ClockTime clockTime = new ClockTimer();
-		clockTime.tick();
 	}
 
 }

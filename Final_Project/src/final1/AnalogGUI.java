@@ -15,6 +15,7 @@ public class AnalogGUI extends JFrame {
 	private int m = 0;
 	private int s = 0;
 	private AnalogClock analogClock;
+
 	private Timer timer = new Timer(1000, new ActionListener() {
 
 		@Override

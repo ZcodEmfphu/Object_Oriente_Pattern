@@ -10,18 +10,21 @@ public class ForecastDisplay implements Observer, DisplayElement {
 		this.weatherData = weatherData;
 		weatherData.registerObserver(this);
 	}
-	
+
 	public void update(float temperature, float humidity, float pressure) {
-		lassPresure= currentPresure;
+		lassPresure = currentPresure;
 		currentPresure = pressure;
 		display();
 	}
-	
+
 	public void display() {
 		System.out.print("Forecast: ");
-		if(currentPresure > lassPresure)System.out.println("Hot weather");
-		if(currentPresure==lassPresure) System.out.println("Nomal weather");
-		if(currentPresure < lassPresure) System.out.println("Cool weather");
+		if (currentPresure > lassPresure)
+			System.out.println("Hot weather");
+		if (currentPresure == lassPresure)
+			System.out.println("Nomal weather");
+		if (currentPresure < lassPresure)
+			System.out.println("Cool weather");
 	}
 
 }
