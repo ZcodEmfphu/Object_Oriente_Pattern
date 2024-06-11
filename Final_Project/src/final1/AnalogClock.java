@@ -3,13 +3,12 @@ package final1;
 public class AnalogClock implements Observer {
 
 	private int h, m, s;
-	private AnalogGUI analogGUI;
 	private ClockTime clockTime;
 
 	public AnalogClock(ClockTime clockTime) {
 		// TODO Auto-generated constructor stub
 		this.clockTime = clockTime;
-		clockTime.register(this);
+		clockTime.register(this); // this is observer method
 
 	}
 
