@@ -11,6 +11,7 @@ public class CenterTour {
 
 		System.out.println(domesticTour.getDescription() + " - Price: " + domesticTour.price());
 		System.out.println(overseasTour.getDescription() + " - Price: " + overseasTour.price());
+		
 		System.out.println(fiveStartTour.getDescription() + " - Price: " + fiveStartTour.price());
 	}
 
