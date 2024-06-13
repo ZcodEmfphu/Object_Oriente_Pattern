@@ -1,6 +1,7 @@
 package lab6.ex1;
 
 public class PizzaStore {
+
 	private SimplePizzaFactory factory;
 
 	public PizzaStore(SimplePizzaFactory factory) {
@@ -16,6 +17,7 @@ public class PizzaStore {
 		pizza.bake();
 		pizza.cut();
 		pizza.box();
+		
 		return pizza;
 	}
 
