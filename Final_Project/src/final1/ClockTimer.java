@@ -9,7 +9,7 @@ import java.util.TimerTask;
 public class ClockTimer implements ClockTime {
 
 	private int h, m, s;
-	List<Observer> listObserver;
+	private List<Observer> listObserver;
 
 	public ClockTimer() {
 		super();
