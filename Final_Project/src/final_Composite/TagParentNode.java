@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TagParentNode extends XmlComponent {
+	
 	private String tagName;
 	private List<XmlComponent> children;
 
