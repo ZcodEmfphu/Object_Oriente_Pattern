@@ -67,6 +67,7 @@ public abstract class Bomber extends Actor {
 		this.heart = heart;
 	}
 
+	/* Move of bomber */
 	@Override
 	public boolean move(int count, ArrayList<Bomb> arrBomb, ArrayList<Box> arrBox) {
 		if (status == DEAD) {

@@ -22,7 +22,6 @@ public class PlayGameControllerExt extends ControllerView {
 			if (e.getSource() == playGame.getBtn_Menu()) {
 				playGame.getmMagager().setRound(1);
 				playGame.getmMagager().innitManager();
-//				playGame.getmMagager().getCountdown().getTimer().stop();
 				GameSound.getIstance().getAudio(GameSound.BOMB).play();
 				view.myContainer.setShowMenu();
 			}

@@ -3,15 +3,10 @@ package controller;
 import model.ReadFileHightScore;
 import view.GameView;
 
-/**
- * @author MinhHungTr
- *
- */
 public class ControllerView implements ControllerMain {
 
 	protected ReadFileHightScore model;
 	protected GameView view;
-	// private HightScoreControllerExt hightScoreControllerExt;
 
 	public ControllerView(ReadFileHightScore model, GameView view) {
 		this.model = model;
@@ -33,7 +28,7 @@ public class ControllerView implements ControllerMain {
 		playGameController();
 		chooseActorController();
 		optionController();
-		// hightScoreController();
+
 	}
 
 	public void menuController() {
