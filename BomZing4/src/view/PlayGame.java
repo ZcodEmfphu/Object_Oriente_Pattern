@@ -24,12 +24,11 @@ public class PlayGame implements Observer, Runnable {
 	public static boolean IS_RUNNING = true;
 	protected JPanel playGamePanel;
 	private MyContainer mContainer;
-	Observable observable;
-	Bomber bomber;
+	private Observable observable;
+	private Bomber bomber;
 	private BitSet traceKey = new BitSet();
 	private Manager mMagager;
 	private int count = 0;
-	// private int deadlineBomb = 0;
 	private int move = 0;
 	private int timeDead = 0;
 	private int timeLose = 0;
@@ -39,20 +38,19 @@ public class PlayGame implements Observer, Runnable {
 	private Thread mytheard;
 
 	public PlayGame(MyContainer mContainer) {
-		playGamePanel = pnGame;
 		this.mContainer = mContainer;
+
+		playGamePanel = pnGame;
 		mMagager = new Manager(1);
 		playGamePanel.setBackground(Color.WHITE);
 		playGamePanel.setLayout(null);
 		playGamePanel.setFocusable(true);
 		playGamePanel.addKeyListener(keyAdapter);
 		mytheard = new Thread(this);
-		// thuc hien tien trinh run
 		mytheard.start();
 		// add button menu
 		innitCompts();
-
-		// initScore();
+		initScore();
 
 	}
 

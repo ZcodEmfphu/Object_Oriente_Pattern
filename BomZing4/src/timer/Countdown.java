@@ -13,8 +13,6 @@ public class Countdown extends Observable {
 	private int second;
 
 	public Countdown() {
-		// minute=2;
-		// second=0;
 		timer = new Timer(1000, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tick();

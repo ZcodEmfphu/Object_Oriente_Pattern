@@ -43,7 +43,6 @@ public class KhoKho extends Bomber {
 		orientable.changeOrient(this, orient);
 	}
 
-	
 	@Override
 	public void setQuantityBomb(int quantityBomb) {
 		if (quantityBomb > 6) {
