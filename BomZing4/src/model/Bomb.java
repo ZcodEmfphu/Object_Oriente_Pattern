@@ -41,8 +41,7 @@ public class Bomb extends Actor {
 
 	/* Draw bomb */
 	@Override
-	public void drawActor(Graphics2D g2d) {
-		super.drawActor(g2d);
+	public void drawActor(Graphics2D g2d) {	
 		g2d.drawImage(img, x, y, null);
 	}
 

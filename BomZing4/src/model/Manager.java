@@ -56,6 +56,7 @@ public class Manager {
 		return countdown;
 	}
 
+	/* Setting bomber */
 	public void setBomBer() {
 		if (type == 1) {
 			mBomber = new KhoKho(540, 495, Actor.BOMBER, Actor.DOWN, 5, 1, 1);
@@ -73,7 +74,6 @@ public class Manager {
 		switch (round) {
 		case 1:
 			countdown.update(2, 0);
-
 			setBomBer();
 			innit("src/map1/BOX.txt", "src/map1/SHADOW.txt", "src/map1/MONSTER.txt", "src/map1/ITEM.txt");
 			nextRound = 0;
@@ -141,7 +141,8 @@ public class Manager {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/* Initial arrBox */
 	public void innitArrBox(String pathBox, String pathShadow) {
 		try {
 			FileReader file = new FileReader(pathBox);
@@ -184,7 +185,8 @@ public class Manager {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/* Initial bomb */
 	public void innitBomb() {
 		if (mBomber.getStatus() == Bomber.DEAD) {
 			return;
@@ -220,14 +222,14 @@ public class Manager {
 				int speed = Integer.parseInt(str[4]);
 				int heart = Integer.parseInt(str[5]);
 				String images = str[6];
-//				MonsterMax max = new MonsterMax(x, y, type, orient, speed, heart, images);
+				MonsterMax max = new MonsterMax(x, y, type, orient, speed, heart, images);
 				MonsterMin min = new MonsterMin(x, y, type, orient, speed, heart, images);
 				MonsterMinBoss minBoss = new MonsterMinBoss(x, y, type, orient, speed, heart, images);
 				MonsterGhost ghost = new MonsterGhost(x, y, type, orient, speed, heart, images);
 				MonsterBoss boss = new MonsterBoss(x, y, type, orient, speed, heart, images);
-//				if (type == Monster.MonMAX) {
-//					arrMonster.add(max);
-//				}
+				if (type == Monster.MonMAX) {
+					arrMonster.add(max);
+				}
 				if (type == Monster.MonMIN) {
 					arrMonster.add(min);
 				}
@@ -292,7 +294,7 @@ public class Manager {
 			}
 		}
 	}
-
+	
 	public void drawAllItem(Graphics2D g2d) {
 		for (int i = 0; i < arrItem.size(); i++) {
 			arrItem.get(i).drawItem(g2d);
@@ -352,22 +354,24 @@ public class Manager {
 	public int getSore() {
 		return mBomber.getScore();
 	}
-
+	
+	/* draw bomb */
 	public void drawAllBomb(Graphics2D g2d) {
 		for (int i = 0; i < arrBomb.size(); i++) {
 			arrBomb.get(i).drawActor(g2d);
 		}
 		for (int i = 0; i < arrBombBang.size(); i++) {
-			arrBombBang.get(i).drawBongBang(g2d);
+			arrBombBang.get(i).drawBombBang(g2d);
 		}
 	}
-
+	
+	/* draw monster */
 	public void drawAllMonster(Graphics2D g2d) {
 		for (int i = 0; i < arrMonster.size(); i++) {
 			arrMonster.get(i).drawActor(g2d);
 		}
 	}
-
+	/* draw boss */
 	public void drawBoss(Graphics2D g2d) {
 		for (int i = 0; i < arrMonster.size(); i++) {
 			if (arrMonster.get(i).getType() == Monster.BOSS) {
@@ -375,7 +379,8 @@ public class Manager {
 			}
 		}
 	}
-
+	
+	/* check status */
 	public void checkWinAndLose() {
 		if (mBomber.getHeart() == 0 && nextRound == 0) {
 			round = 1;

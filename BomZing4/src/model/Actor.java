@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
 
-public class Actor {
+public  class Actor {
 	public static final int LEFT = 1;
 	public static final int RIGHT = 2;
 	public static final int UP = 3;

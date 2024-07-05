@@ -13,7 +13,7 @@ public class GameView {
 	public MyContainer myContainer;
 
 	public GameView() {
-		view = new JFrame("Easy BOOM!");
+		view = new JFrame("Thiết Kế Hướng Đối Tượng 2024");
 		view.setLayout(new CardLayout());
 		view.setSize(WIDTHJF, HEIGHTJF);
 		view.setLocationRelativeTo(null);

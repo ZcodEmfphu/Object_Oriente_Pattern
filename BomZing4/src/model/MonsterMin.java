@@ -11,12 +11,12 @@ public class MonsterMin extends Monster {
 		width = 45;
 	}
 
-//	@Override
-//	public void drawActor(Graphics2D g2d) {
-//		super.drawActor(g2d);
-//		drawable = new DrawMonsterMinImpl();
-//		drawable.draw(this, g2d);
-//	}
+	@Override
+	public void drawActor(Graphics2D g2d) {
+		super.drawActor(g2d);
+		drawable = new DrawMonsterMinImpl();
+		drawable.draw(this, g2d);
+	}
 
 	@Override
 	public void changeOrient(int orient) {

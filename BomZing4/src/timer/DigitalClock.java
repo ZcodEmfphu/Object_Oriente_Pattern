@@ -5,7 +5,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class DigitalClock implements Observer {
-	// private JLabel clockLabel;
 	private int minute;
 	private int second;
 

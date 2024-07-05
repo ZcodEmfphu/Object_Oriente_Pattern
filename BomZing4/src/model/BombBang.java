@@ -52,7 +52,7 @@ public class BombBang {
 		}
 	}
 
-	public void drawBongBang(Graphics2D g2d) {
+	public void drawBombBang(Graphics2D g2d) {
 		drawable = new DrawBombBangImpl();
 		drawable.draw(this, g2d);
 	}
@@ -95,11 +95,9 @@ public class BombBang {
 		if (box.getType() == Box.DISALLROW_BANG) {
 			return false;
 		}
-		Rectangle rec1 = new Rectangle(x + 45 - img_left.getWidth(null), y, img_left.getWidth(null),
-				img_left.getHeight(null));
+		Rectangle rec1 = new Rectangle(x + 45 - img_left.getWidth(null), y, img_left.getWidth(null), img_left.getHeight(null));
 		Rectangle rec2 = new Rectangle(x, y, img_right.getWidth(null), img_right.getHeight(null));
-		Rectangle rec3 = new Rectangle(x, y + 45 - img_up.getHeight(null), img_up.getWidth(null),
-				img_up.getHeight(null));
+		Rectangle rec3 = new Rectangle(x, y + 45 - img_up.getHeight(null), img_up.getWidth(null), img_up.getHeight(null));
 		Rectangle rec4 = new Rectangle(x, y, img_down.getWidth(null), img_down.getHeight(null));
 		Rectangle rec5 = new Rectangle(box.getX(), box.getY(), box.getWidth(), box.getHeight());
 		if (rec1.intersects(rec5) || rec2.intersects(rec5) || rec3.intersects(rec5) || rec4.intersects(rec5)) {
