@@ -14,12 +14,15 @@ public class Actor {
 	public static final int BOMBER = 1;
 	public static final int BOMB = 4;
 
-	protected int x, y, type, orient, speed, width, height, runBomb;
+	protected int x, y, type, speed, width, height, runBomb;
+	protected int orient;
 	protected Image img;
 
+	/* Draw actor */
 	public void drawActor(Graphics2D g2d) {
 	};
-
+	
+	/*  move */
 	public boolean move(int count, ArrayList<Bomb> arrBomb, ArrayList<Box> arrBox) {
 		if (count % speed != 0) {
 			return true;
@@ -171,7 +174,8 @@ public class Actor {
 	public int getSpeed() {
 		return speed;
 	}
-
+	
+	/* Set speed when higher than 1 */
 	public void setSpeed(int speed) {
 		if (speed < 1) {
 			return;

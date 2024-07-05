@@ -19,6 +19,7 @@ public class GameView {
 		view.setLocationRelativeTo(null);
 		view.setResizable(false);
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		myContainer = new MyContainer(this);
 		view.add(myContainer.myContainer);
 

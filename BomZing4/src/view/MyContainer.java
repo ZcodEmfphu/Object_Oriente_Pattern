@@ -22,24 +22,25 @@ public class MyContainer {
 	private Option mOption;
 	private HightScorePanel mHightScorePanel;
 	private ChooseActor chooseActor;
-	// private Countdown countdown;
 
 	public MyContainer(GameView gameView) {
-		myContainer = new JPanel();
-		// countdown = new CouFntdown();
 		this.gameView = gameView;
-		myContainer.setBackground(Color.WHITE);
+		myContainer = new JPanel();
+
 		mCardLayout = new CardLayout();
-		myContainer.setLayout(mCardLayout);
 		menu = new MenuView();
-		myContainer.add(menu.menuPanel, TAG_MENU);
 		play = new PlayGame(this);
-		myContainer.add(play.playGamePanel, TAG_PLAYGAME);
 		mOption = new Option();
-		myContainer.add(mOption.optionPanel, TAG_OPTION);
 		mHightScorePanel = new HightScorePanel();
-		myContainer.add(mHightScorePanel.hightScorePanel, TAG_HIGHTSCORE);
 		chooseActor = new ChooseActor();
+
+		myContainer.setLayout(mCardLayout);
+		myContainer.setBackground(Color.WHITE);
+
+		myContainer.add(menu.menuPanel, TAG_MENU);
+		myContainer.add(play.playGamePanel, TAG_PLAYGAME);
+		myContainer.add(mOption.optionPanel, TAG_OPTION);
+		myContainer.add(mHightScorePanel.hightScorePanel, TAG_HIGHTSCORE);
 		myContainer.add(chooseActor.chooseActor, TAG_ACTOR);
 	}
 
@@ -77,11 +78,10 @@ public class MyContainer {
 
 	public void setShowPlay(int type) {
 		play.chooseActor(type);
-		// play.countdown.update(2, 0);
 		mCardLayout.show(this.myContainer, TAG_PLAYGAME);
 		play.playGamePanel.requestFocus();
 		GameSound.getIstance().stop();
-		// GameSound.getIstance().getAudio(GameSound.MENU).stop();
+
 		GameSound.getIstance().getAudio(GameSound.PLAYGAME).loop();
 	}
 

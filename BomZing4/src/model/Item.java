@@ -8,13 +8,13 @@ import javax.swing.ImageIcon;
 
 public class Item {
 	DrawableInterface drawable;
-	public static int Item_Bomb=1;
-	public static int Item_BombSize=2;
-	public static int Item_Shoe=3;
-	
+	public static int Item_Bomb = 1;
+	public static int Item_BombSize = 2;
+	public static int Item_Shoe = 3;
+
 	protected int x, y, type, width, height, timeLine;
 	protected Image img;
-	
+
 	public Item(int x, int y, int type, String image) {
 		super();
 		this.x = x;
@@ -23,10 +23,10 @@ public class Item {
 		this.img = new ImageIcon(getClass().getResource(image)).getImage();
 		this.width = img.getWidth(null);
 		this.height = img.getHeight(null);
-		timeLine=250;
+		timeLine = 250;
 	}
-	
-	public void drawItem(Graphics2D g2d){
+
+	public void drawItem(Graphics2D g2d) {
 		drawable = new DrawItemImpl();
 		drawable.draw(this, g2d);
 	}
@@ -50,16 +50,16 @@ public class Item {
 	public int getHeight() {
 		return height;
 	}
-		
+
 	public int getTimeLine() {
 		return timeLine;
 	}
-	
+
 	public void setTimeLine(int timeLine) {
 		this.timeLine = timeLine;
 	}
 
-	public boolean isImpactItemVsBomber(Bomber bomber){
+	public boolean isImpactItemVsBomber(Bomber bomber) {
 		Rectangle rec1 = new Rectangle(x, y, width, height);
 		Rectangle rec2 = new Rectangle(bomber.getX(), bomber.getY(), bomber.getWidth(), bomber.getHeight());
 		return rec1.intersects(rec2);

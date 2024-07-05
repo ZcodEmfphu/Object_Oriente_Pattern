@@ -38,7 +38,7 @@ public class Manager {
 	private int status = 0;
 	private int type;
 	DigitalClock digitalClock = new DigitalClock();
-	private Countdown countdown;	
+	private Countdown countdown;
 	private int scoretime;
 
 	public Manager(int type) {
@@ -205,6 +205,7 @@ public class Manager {
 		arrBomb.add(mBomb);
 	}
 
+	/* Initial monster */
 	public void initarrMonster(String path) {
 		try {
 			FileReader file = new FileReader(path);
@@ -219,14 +220,14 @@ public class Manager {
 				int speed = Integer.parseInt(str[4]);
 				int heart = Integer.parseInt(str[5]);
 				String images = str[6];
-				MonsterMax max = new MonsterMax(x, y, type, orient, speed, heart, images);
+//				MonsterMax max = new MonsterMax(x, y, type, orient, speed, heart, images);
 				MonsterMin min = new MonsterMin(x, y, type, orient, speed, heart, images);
 				MonsterMinBoss minBoss = new MonsterMinBoss(x, y, type, orient, speed, heart, images);
 				MonsterGhost ghost = new MonsterGhost(x, y, type, orient, speed, heart, images);
 				MonsterBoss boss = new MonsterBoss(x, y, type, orient, speed, heart, images);
-				if (type == Monster.MonMAX) {
-					arrMonster.add(max);
-				}
+//				if (type == Monster.MonMAX) {
+//					arrMonster.add(max);
+//				}
 				if (type == Monster.MonMIN) {
 					arrMonster.add(min);
 				}
@@ -405,13 +406,13 @@ public class Manager {
 		}
 	}
 
+	/* Check Dead */
 	public void checkDead() {
 		if (mBomber.getHeart() < 3 && mBomber.getHeart() > 0) {
 			getCountdown().getTimer().start();
 		}
 		for (int i = 0; i < arrBombBang.size(); i++) {
 			if (arrBombBang.get(i).isImpactBombBangVsActor(mBomber) && mBomber.getStatus() == Bomber.ALIVE) {
-				// countdown.update(2, 0);
 				Image icon;
 				if (mBomber instanceof BeBong) {
 					icon = new ImageIcon(getClass().getResource("/Images/bebong_dead.png")).getImage();
@@ -433,7 +434,6 @@ public class Manager {
 		}
 		for (int i = 0; i < arrMonster.size(); i++) {
 			if (mBomber.isImpactBomberVsActor(arrMonster.get(i))) {
-				// countdown.update(2, 0);
 				Image icon;
 				if (mBomber instanceof BeBong || mBomber instanceof TiBanh) {
 					icon = new ImageIcon(getClass().getResource("/Images/ghost2.png")).getImage();

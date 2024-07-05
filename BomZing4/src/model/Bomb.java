@@ -9,6 +9,7 @@ public class Bomb extends Actor {
 
 	protected int size, timeline;
 
+	/* Constructor using for manager bomb */
 	public Bomb(int x, int y, int size, int timeline) {
 		x = (x / 45) * 45;
 		y = (y / 45) * 45;
@@ -38,6 +39,7 @@ public class Bomb extends Actor {
 		this.height = img.getHeight(null);
 	}
 
+	/* Draw bomb */
 	@Override
 	public void drawActor(Graphics2D g2d) {
 		super.drawActor(g2d);
@@ -62,16 +64,17 @@ public class Bomb extends Actor {
 		return rec2.intersects(rec3);
 	}
 
-	public void setTimeline(int timeline) {
-		this.timeline = timeline;
-	}
-
 	public boolean isImpact(int xNewBomb, int yNewBomb) {
 		Rectangle rec1 = new Rectangle(x, y, 45, 45);
 		Rectangle rec2 = new Rectangle(xNewBomb, yNewBomb, 45, 45);
 		return rec1.intersects(rec2);
 	}
 
+	public void setTimeline(int timeline) {
+		this.timeline = timeline;
+	}
+
+	/* Impact bomb with Actor */
 	public int isImpactBombvsActor(Actor actor) {
 		if (actor.getRunBomb() == Bomber.ALLOW_RUN) {
 			return 0;
