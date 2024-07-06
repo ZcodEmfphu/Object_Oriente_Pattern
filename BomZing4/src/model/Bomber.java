@@ -75,7 +75,8 @@ public abstract class Bomber extends Actor {
 		}
 		return super.move(count, arrBomb, arrBox);
 	}
-
+	
+	/* Impact Bomber Vs Actor */
 	public boolean isImpactBomberVsActor(Actor actor) {
 		if (status == DEAD) {
 			return false;

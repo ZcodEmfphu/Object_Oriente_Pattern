@@ -75,7 +75,8 @@ public class Manager {
 		case 1:
 			countdown.update(2, 0);
 			setBomBer();
-			innit("src/map1/BOX.txt", "src/map1/SHADOW.txt", "src/map1/MONSTER.txt", "src/map1/ITEM.txt");
+			innit("src/map1/BOX.txt", "src/map1/SHADOW.txt", "src/map1/MONSTER.txt", "src/map1/ITEM.txt",
+					"src/map1/ITEM2.txt");
 			nextRound = 0;
 			status = 0;
 			break;
@@ -85,7 +86,8 @@ public class Manager {
 			GameSound.getIstance().stop();
 			GameSound.getIstance().getAudio(GameSound.PLAYGAME).loop();
 			mBomber.setNew(540, 495);
-			innit("src/map2/BOX.txt", "src/map2/SHADOW.txt", "src/map2/MONSTER.txt", "src/map2/ITEM.txt");
+			innit("src/map2/BOX.txt", "src/map2/SHADOW.txt", "src/map2/MONSTER.txt", "src/map2/ITEM.txt",
+					"src/map1/ITEM2.txt");
 			nextRound = 0;
 			status = 0;
 			break;
@@ -94,7 +96,8 @@ public class Manager {
 			GameSound.getIstance().stop();
 			GameSound.getIstance().getAudio(GameSound.PLAYGAME).loop();
 			mBomber.setNew(540, 495);
-			innit("src/map3/BOX.txt", "src/map3/SHADOW.txt", "src/map3/MONSTER.txt", "src/map3/ITEM.txt");
+			innit("src/map3/BOX.txt", "src/map3/SHADOW.txt", "src/map3/MONSTER.txt", "src/map3/ITEM.txt",
+					"src/map1/ITEM2.txt");
 			nextRound = 0;
 			status = 0;
 			break;
@@ -105,7 +108,7 @@ public class Manager {
 
 	}
 
-	public void innit(String pathBox, String pathShadow, String pathMonster, String pathItem) {
+	public void innit(String pathBox, String pathShadow, String pathMonster, String pathItem1, String pathItem2) {
 		arrBox = new ArrayList<Box>();
 		arrShawDow = new ArrayList<Box>();
 		arrBomb = new ArrayList<Bomb>();
@@ -116,10 +119,12 @@ public class Manager {
 
 		innitArrBox(pathBox, pathShadow);
 		initarrMonster(pathMonster);
-		innitArrItem(pathItem);
+		innitArrItem(pathItem1);
+		innitArrItem(pathItem2);
 		innitArrHightScore("src/hightscore/HightScore.txt");
 	}
 
+	/* Initial Item */
 	public void innitArrItem(String path) {
 		try {
 			FileReader file = new FileReader(path);
@@ -131,8 +136,10 @@ public class Manager {
 				int y = Integer.parseInt(str[1]);
 				int type = Integer.parseInt(str[2]);
 				String images = str[3];
-				Item item = new Item(x, y, type, images);
-				arrItem.add(item);
+				Item bomb = new ITem_Bomb(x, y, type, images);
+				ItemDecorator pos = new ShoeDecorator(bomb, images);
+			
+				arrItem.add(pos);
 			}
 			input.close();
 		} catch (FileNotFoundException e) {
@@ -141,7 +148,7 @@ public class Manager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/* Initial arrBox */
 	public void innitArrBox(String pathBox, String pathShadow) {
 		try {
@@ -185,7 +192,7 @@ public class Manager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/* Initial bomb */
 	public void innitBomb() {
 		if (mBomber.getStatus() == Bomber.DEAD) {
@@ -272,6 +279,7 @@ public class Manager {
 		}
 	}
 
+	/* Dialog */
 	public void drawDialog(Graphics2D g2d, int type) {
 		g2d.setFont(new Font("Arial", Font.BOLD, 70));
 		g2d.setColor(Color.RED);
@@ -294,7 +302,7 @@ public class Manager {
 			}
 		}
 	}
-	
+
 	public void drawAllItem(Graphics2D g2d) {
 		for (int i = 0; i < arrItem.size(); i++) {
 			arrItem.get(i).drawItem(g2d);
@@ -354,7 +362,7 @@ public class Manager {
 	public int getSore() {
 		return mBomber.getScore();
 	}
-	
+
 	/* draw bomb */
 	public void drawAllBomb(Graphics2D g2d) {
 		for (int i = 0; i < arrBomb.size(); i++) {
@@ -364,13 +372,14 @@ public class Manager {
 			arrBombBang.get(i).drawBombBang(g2d);
 		}
 	}
-	
+
 	/* draw monster */
 	public void drawAllMonster(Graphics2D g2d) {
 		for (int i = 0; i < arrMonster.size(); i++) {
 			arrMonster.get(i).drawActor(g2d);
 		}
 	}
+
 	/* draw boss */
 	public void drawBoss(Graphics2D g2d) {
 		for (int i = 0; i < arrMonster.size(); i++) {
@@ -379,7 +388,7 @@ public class Manager {
 			}
 		}
 	}
-	
+
 	/* check status */
 	public void checkWinAndLose() {
 		if (mBomber.getHeart() == 0 && nextRound == 0) {

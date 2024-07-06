@@ -11,11 +11,3 @@
 225:495:1:/Images/item_bomb.gif
 270:495:1:/Images/item_bomb.gif
 315:495:1:/Images/item_bomb.gif
-180:585:3:/Images/item_shoe.gif
-225:585:3:/Images/item_shoe.gif
-270:585:3:/Images/item_shoe.gif
-315:585:3:/Images/item_shoe.gif
-180:540:2:/Images/item_bombsize.gif
-225:540:2:/Images/item_bombsize.gif
-270:540:2:/Images/item_bombsize.gif
-315:540:2:/Images/item_bombsize.gif

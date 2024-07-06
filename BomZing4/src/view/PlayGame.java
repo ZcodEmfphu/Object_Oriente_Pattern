@@ -50,7 +50,7 @@ public class PlayGame implements Observer, Runnable {
 		mytheard.start();
 		// add button menu
 		innitCompts();
-		initScore();
+//		initScore();
 
 	}
 
@@ -118,7 +118,8 @@ public class PlayGame implements Observer, Runnable {
 			traceKey.clear(e.getKeyCode());
 		}
 	};
-
+	
+	/* start */
 	@Override
 	public void run() {
 		while (IS_RUNNING) {

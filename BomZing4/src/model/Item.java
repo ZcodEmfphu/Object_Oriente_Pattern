@@ -6,24 +6,16 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-public class Item {
+public abstract class Item {
 	DrawableInterface drawable;
 	public static int Item_Bomb = 1;
 	public static int Item_BombSize = 2;
 	public static int Item_Shoe = 3;
-
 	protected int x, y, type, width, height, timeLine;
 	protected Image img;
-
-	public Item(int x, int y, int type, String image) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.type = type;
-		this.img = new ImageIcon(getClass().getResource(image)).getImage();
-		this.width = img.getWidth(null);
-		this.height = img.getHeight(null);
-		timeLine = 250;
+	
+	public Item() {
+		
 	}
 
 	public void drawItem(Graphics2D g2d) {
