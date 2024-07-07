@@ -21,11 +21,9 @@ public class Countdown extends Observable {
 
 	}
 
-	public boolean checkTimeOut() {
-		if (minute == 1 && second == 0) {
-			return true;
-		}
-		return false;
+	public void update(int minute, int second) {
+		this.minute = minute;
+		this.second = second;
 	}
 
 	public void tick() {
@@ -41,6 +39,13 @@ public class Countdown extends Observable {
 		notifyObservers(this);
 	}
 
+	public boolean checkTimeOut() {
+		if (minute == 1 && second == 0) {
+			return true;
+		}
+		return false;
+	}
+
 	public int getMinute() {
 		return minute;
 	}
@@ -51,11 +56,6 @@ public class Countdown extends Observable {
 
 	public int getSecond() {
 		return second;
-	}
-
-	public void update(int minute, int second) {
-		this.minute = minute;
-		this.second = second;
 	}
 
 }

@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.util.ArrayList;
 
-public  class Actor {
+public class Actor {
 	public static final int LEFT = 1;
 	public static final int RIGHT = 2;
 	public static final int UP = 3;
@@ -21,8 +21,8 @@ public  class Actor {
 	/* Draw actor */
 	public void drawActor(Graphics2D g2d) {
 	};
-	
-	/*  move */
+
+	/* move */
 	public boolean move(int count, ArrayList<Bomb> arrBomb, ArrayList<Box> arrBox) {
 		if (count % speed != 0) {
 			return true;
@@ -174,7 +174,7 @@ public  class Actor {
 	public int getSpeed() {
 		return speed;
 	}
-	
+
 	/* Set speed when higher than 1 */
 	public void setSpeed(int speed) {
 		if (speed < 1) {

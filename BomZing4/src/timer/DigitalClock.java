@@ -1,8 +1,8 @@
 package timer;
 
 import java.util.Observable;
-
 import java.util.Observer;
+
 
 public class DigitalClock implements Observer {
 	private int minute;

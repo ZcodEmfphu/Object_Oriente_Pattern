@@ -1,1 +1,10 @@
-Phus:0
+null:12000
+PhusMoinh:12000
+null:12000
+null:12000
+Phu:11400
+null:2600
+null:1700
+MinhPhuDo:600
+null:200
+Lan1:200
