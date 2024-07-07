@@ -41,16 +41,15 @@ public class PlayGame implements Observer, Runnable {
 		this.mContainer = mContainer;
 
 		playGamePanel = pnGame;
-		mMagager = new Manager(1);
+		mMagager = new Manager(1); /* model */
 		playGamePanel.setBackground(Color.WHITE);
 		playGamePanel.setLayout(null);
 		playGamePanel.setFocusable(true);
 		playGamePanel.addKeyListener(keyAdapter);
 		mytheard = new Thread(this);
 		mytheard.start();
-		// add button menu
 		innitCompts();
-//		initScore();
+
 
 	}
 

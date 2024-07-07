@@ -10,9 +10,7 @@ public class RunGame {
 		GameView view = new GameView();
 		ReadFileHightScore model = new ReadFileHightScore();
 		ControllerMain controller = new ControllerView(model, view);
-		
 		controller.displayGame();
-		
 
 		view.getView().setVisible(true);
 	}

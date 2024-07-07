@@ -27,8 +27,7 @@ public class ControllerView implements ControllerMain {
 		menuController();
 		playGameController();
 		chooseActorController();
-		optionController();
-
+		optionController();	
 	}
 
 	public void menuController() {

@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import model.HightScore;
 
 public class HightScorePanel {
-	protected JPanel hightScorePanel;
+	protected JPanel hightScorePanel;	
 	private ArrayList<HightScore> arrHightScore;
 	private JLabel lbCancel;
 	private ImageIcon backgrLbOp;

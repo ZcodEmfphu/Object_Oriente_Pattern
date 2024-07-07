@@ -627,6 +627,7 @@ public class Manager {
 		}
 	}
 
+	/* Save score */
 	public void saveScore() {
 		System.out.println();
 		if (arrHightScore.size() == 0 || arrHightScore.size() < 10) {
